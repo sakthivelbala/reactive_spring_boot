@@ -1,4 +1,4 @@
-package com.sakthidev.reactivespringboot;
+package com.sakthidev.reactivespringboot.functional;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

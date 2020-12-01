@@ -12,7 +12,8 @@ public class Functional implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         // runFunctionalInterface();
-        functionalSum();
+        // functionalSum();
+        higherOrderFunctions();
     }
 
     //sum
@@ -30,4 +31,13 @@ public class Functional implements ApplicationRunner {
         func.functionalMethod();
     }
     
+    public void higherOrderFunctions(){
+        System.out.println(createFactory(()->Math.random()*100, x->x.intValue()).create());
+    }
+
+    public <T,R> IFactory<R> createFactory(IProduct<T> producer,IConfigure<T,R> configurator){
+        return ()->{
+            return configurator.configure(producer.product());
+        };
+    }
 }
